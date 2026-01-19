@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide : Navigateur et Web</title>
+    <title>Gérer les onglets et favoris</title>
     <style>
         * {
             margin: 0;
@@ -12,184 +12,222 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #b6d7a8;
-            background: linear-gradient(135deg, #b6d7a8 0%, #93c47d 100%);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #1a3a2e;
+            background: linear-gradient(135deg, #2d5a4a 0%, #1a3a2e 100%);
             min-height: 100vh;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
             text-align: center;
         }
 
         h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            color: #2d5a4a;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         .subtitle {
-            color: #666;
-            font-size: 1.2em;
+            color: #5a7a6f;
+            font-size: 1.1em;
+            font-weight: 400;
         }
 
         .section {
             background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
         h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            color: #2d5a4a;
+            font-size: 2em;
+            margin-bottom: 25px;
+            font-weight: 700;
         }
 
         h3 {
-            color: #764ba2;
-            font-size: 1.3em;
-            margin: 20px 0 10px 0;
+            color: #3d6a5a;
+            font-size: 1.5em;
+            margin: 30px 0 20px 0;
+            font-weight: 600;
         }
 
-        .steps {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px 0;
+        .content-block {
+            background: #f8faf9;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #5a9d7f;
         }
 
         .step {
             display: flex;
             align-items: start;
-            margin: 15px 0;
-            padding: 15px;
+            margin: 20px 0;
+            padding: 20px;
             background: white;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(45, 90, 74, 0.1);
         }
 
         .step-number {
-            background: #667eea;
+            background: linear-gradient(135deg, #5a9d7f 0%, #3d6a5a 100%);
             color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-right: 20px;
             flex-shrink: 0;
         }
 
-        .tip {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
+        .step-content {
+            flex: 1;
         }
 
-        .tip::before {
-            content: "💡 Astuce : ";
-            font-weight: bold;
-            color: #856404;
-        }
-
-        .warning {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        .warning::before {
-            content: "⚠️ Attention : ";
-            font-weight: bold;
-            color: #721c24;
+        .step-content strong {
+            color: #2d5a4a;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .shortcut {
             display: inline-block;
-            background: #667eea;
+            background: #2d5a4a;
             color: white;
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 0.9em;
-            margin: 0 3px;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .card {
-            background: #f8f9fa;
+        .tip {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid #28a745;
             padding: 20px;
+            margin: 20px 0;
             border-radius: 10px;
-            border: 2px solid #e9ecef;
         }
 
-        .card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
+        .tip::before {
+            content: "💡 ";
+            font-size: 1.3em;
+            margin-right: 8px;
+        }
+
+        .tip strong {
+            color: #155724;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8faf9 0%, #e8f0ed 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #d4e5dd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(45, 90, 74, 0.15);
+        }
+
+        .feature-card h4 {
+            color: #2d5a4a;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #3d6a5a;
+            font-size: 0.95em;
+            line-height: 1.6;
         }
 
         ul {
-            margin-left: 20px;
-            margin-top: 10px;
+            margin-left: 25px;
+            margin-top: 15px;
         }
 
         li {
-            margin: 8px 0;
+            margin: 12px 0;
+            color: #2d5a4a;
+        }
+
+        .visual-example {
+            background: #e8f0ed;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px dashed #5a9d7f;
+        }
+
+        .visual-example h4 {
+            color: #2d5a4a;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: white;
             margin-top: 40px;
-        }
-
-        .icon {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 0.95em;
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
             h1 {
                 font-size: 2em;
             }
 
             .section {
-                padding: 20px;
+                padding: 25px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -197,354 +235,348 @@
 <body>
     <div class="container">
         <header>
-            <div class="icon">🌐</div>
-            <h1>Guide : Navigateur et Web</h1>
-            <p class="subtitle">Maîtrisez votre navigateur pour une navigation efficace et sécurisée</p>
+            <h1>📑 Gérer les onglets et favoris</h1>
+            <p class="subtitle">Optimisez votre navigation avec Chrome</p>
         </header>
 
         <div class="section">
-            <h2>1. Gérer les onglets et favoris</h2>
+            <h2>Gestion des onglets</h2>
             
-            <h3>📑 Gestion des onglets</h3>
-            <div class="steps">
+            <h3>🔧 Actions de base sur les onglets</h3>
+            
+            <div class="content-block">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div>
-                        <strong>Ouvrir/Fermer des onglets :</strong>
-                        <br>Nouvel onglet : <span class="shortcut">Ctrl + T</span>
-                        <br>Fermer l'onglet actuel : <span class="shortcut">Ctrl + W</span>
-                        <br>Rouvrir le dernier onglet fermé : <span class="shortcut">Ctrl + Shift + T</span>
+                    <div class="step-content">
+                        <strong>Ouvrir un nouvel onglet</strong>
+                        Raccourci clavier : <span class="shortcut">Ctrl + T</span><br>
+                        Ou cliquez sur le bouton + à droite de votre dernier onglet
                     </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div>
-                        <strong>Naviguer entre les onglets :</strong>
-                        <br>Onglet suivant : <span class="shortcut">Ctrl + Tab</span>
-                        <br>Onglet précédent : <span class="shortcut">Ctrl + Shift + Tab</span>
-                        <br>Aller à un onglet spécifique : <span class="shortcut">Ctrl + 1-8</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div>
-                        <strong>Organiser les onglets :</strong>
-                        <br>• Glisser-déposer pour réorganiser
-                        <br>• Clic droit > "Épingler l'onglet" pour les sites fréquents
-                        <br>• Regrouper les onglets similaires ensemble
-                    </div>
-                </div>
-            </div>
 
-            <h3>⭐ Gestion des favoris</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div>
-                        <strong>Ajouter un favori :</strong>
-                        <br>Appuyez sur <span class="shortcut">Ctrl + D</span> sur la page à enregistrer
-                        <br>Choisissez un nom clair et un dossier approprié
-                    </div>
-                </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div>
-                        <strong>Créer des dossiers de favoris :</strong>
-                        <br>• Menu > Favoris > Gestionnaire de favoris
-                        <br>• Créer des dossiers thématiques (Travail, Loisirs, Formation, etc.)
-                        <br>• Déplacer les favoris par glisser-déposer
+                    <div class="step-content">
+                        <strong>Fermer un onglet</strong>
+                        Raccourci : <span class="shortcut">Ctrl + W</span><br>
+                        Ou cliquez sur le × sur l'onglet<br>
+                        Ou clic du milieu (molette) sur l'onglet
                     </div>
                 </div>
+
                 <div class="step">
                     <div class="step-number">3</div>
-                    <div>
-                        <strong>Afficher la barre de favoris :</strong>
-                        <br><span class="shortcut">Ctrl + Shift + B</span> pour afficher/masquer
-                        <br>Accessible en un clic pour vos sites fréquents
+                    <div class="step-content">
+                        <strong>Rouvrir un onglet fermé par erreur</strong>
+                        Raccourci : <span class="shortcut">Ctrl + Shift + T</span><br>
+                        Peut rouvrir plusieurs onglets successivement dans l'ordre de fermeture
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Naviguer entre les onglets</strong>
+                        Onglet suivant : <span class="shortcut">Ctrl + Tab</span><br>
+                        Onglet précédent : <span class="shortcut">Ctrl + Shift + Tab</span><br>
+                        Aller à un onglet spécifique : <span class="shortcut">Ctrl + 1 à 8</span><br>
+                        Dernier onglet : <span class="shortcut">Ctrl + 9</span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>Réorganiser les onglets</strong>
+                        Cliquez et glissez un onglet pour le déplacer<br>
+                        Glissez un onglet en dehors de la fenêtre pour créer une nouvelle fenêtre
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <strong>Épingler un onglet</strong>
+                        Clic droit sur l'onglet → "Épingler l'onglet"<br>
+                        L'onglet devient plus petit, se place à gauche et reste ouvert<br>
+                        Idéal pour Gmail, calendrier, outils de travail fréquents
                     </div>
                 </div>
             </div>
 
             <div class="tip">
-                Créez un dossier "À lire" pour sauvegarder les articles que vous souhaitez consulter plus tard.
+                <strong>Astuce :</strong> Les onglets épinglés sont parfaits pour les applications web que vous utilisez toute la journée (messagerie, agenda, outils de travail). Ils restent ouverts même si vous fermez Chrome par erreur.
             </div>
         </div>
 
         <div class="section">
-            <h2>2. Navigation privée et historique</h2>
+            <h2>Groupes d'onglets Chrome</h2>
             
-            <h3>🕵️ Mode de navigation privée</h3>
-            <div class="steps">
+            <h3>🎯 Qu'est-ce qu'un groupe d'onglets ?</h3>
+            <p>Les groupes d'onglets permettent d'organiser vos onglets par thématique avec des couleurs et des noms personnalisés. C'est particulièrement utile quand vous travaillez sur plusieurs projets simultanément.</p>
+
+            <h3>➕ Créer un groupe d'onglets</h3>
+            
+            <div class="content-block">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div>
-                        <strong>Activer la navigation privée :</strong>
-                        <br>Chrome/Edge : <span class="shortcut">Ctrl + Shift + N</span>
-                        <br>Firefox : <span class="shortcut">Ctrl + Shift + P</span>
+                    <div class="step-content">
+                        <strong>Sélectionner les onglets à grouper</strong>
+                        Clic droit sur un onglet → "Ajouter un onglet à un nouveau groupe"<br>
+                        Ou sélectionnez plusieurs onglets : <span class="shortcut">Ctrl + clic</span> sur chaque onglet, puis clic droit → "Ajouter un onglet à un nouveau groupe"
                     </div>
                 </div>
+
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div>
-                        <strong>Ce qui est effacé :</strong>
-                        <br>• Historique de navigation
-                        <br>• Cookies et données de sites
-                        <br>• Informations saisies dans les formulaires
+                    <div class="step-content">
+                        <strong>Nommer et colorer le groupe</strong>
+                        Cliquez sur le point coloré à gauche du groupe<br>
+                        Choisissez un nom descriptif (ex: "Projet X", "Recherche", "Shopping")<br>
+                        Sélectionnez une couleur parmi 8 options disponibles
                     </div>
                 </div>
-            </div>
 
-            <div class="warning">
-                La navigation privée ne vous rend pas invisible sur Internet ! Votre fournisseur d'accès et les sites visités peuvent toujours vous voir.
-            </div>
-
-            <h3>🗑️ Effacer l'historique</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div>
-                        <strong>Ouvrir les paramètres :</strong>
-                        <br>Raccourci : <span class="shortcut">Ctrl + H</span>
-                        <br>Puis cliquer sur "Effacer les données de navigation"
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div>
-                        <strong>Choisir la période :</strong>
-                        <br>• Dernière heure
-                        <br>• Dernières 24 heures
-                        <br>• 7 derniers jours
-                        <br>• Toutes les périodes
-                    </div>
-                </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <div>
-                        <strong>Sélectionner les données :</strong>
-                        <br>☑ Historique de navigation
-                        <br>☑ Cookies et données de sites
-                        <br>☑ Images et fichiers en cache
-                        <br>☑ Mots de passe (optionnel)
+                    <div class="step-content">
+                        <strong>Ajouter des onglets au groupe</strong>
+                        Glissez-déposez un onglet dans le groupe coloré<br>
+                        Ou clic droit sur un onglet → "Ajouter un onglet au groupe" → choisir le groupe
                     </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Réduire/Développer un groupe</strong>
+                        Cliquez sur le nom du groupe pour le réduire<br>
+                        Les onglets du groupe sont masqués mais restent ouverts<br>
+                        Recliquez pour les afficher à nouveau
+                    </div>
+                </div>
+            </div>
+
+            <h3>📋 Exemples de groupes d'onglets utiles</h3>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🏢 Travail/Études</h4>
+                    <p>Regroupez vos outils professionnels : emails, documents partagés, plateformes de gestion de projet, outils collaboratifs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔍 Recherche</h4>
+                    <p>Rassemblez tous les onglets liés à une recherche ou un projet spécifique : articles, sources, documentation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🛒 Shopping</h4>
+                    <p>Comparez les prix et produits en gardant tous les sites marchands dans un même groupe coloré.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📰 Actualités</h4>
+                    <p>Centralisez vos sites d'information et blogs préférés pour une lecture organisée.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎓 Formation</h4>
+                    <p>Plateformes de cours en ligne, tutoriels, ressources pédagogiques regroupés par matière ou thème.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎮 Loisirs</h4>
+                    <p>Réseaux sociaux, vidéos, jeux en ligne, forums séparés de votre espace de travail.</p>
+                </div>
+            </div>
+
+            <div class="visual-example">
+                <h4>💡 Exemple concret d'utilisation</h4>
+                <p><strong>Scénario :</strong> Vous travaillez sur un projet d'école tout en planifiant un voyage</p>
+                <ul>
+                    <li><strong style="color: #e74c3c;">🔴 Groupe Rouge "Projet École" :</strong> Google Docs, sources Wikipedia, PDF de recherche, plateforme de cours</li>
+                    <li><strong style="color: #3498db;">🔵 Groupe Bleu "Voyage Paris" :</strong> Booking.com, SNCF, Google Maps, blog de recommandations</li>
+                    <li><strong style="color: #2ecc71;">🟢 Groupe Vert "Communication" :</strong> Gmail, WhatsApp Web, Slack</li>
+                </ul>
+                <p>Vous pouvez réduire les groupes non utilisés pour garder votre barre d'onglets propre et concentrée.</p>
+            </div>
+
+            <div class="tip">
+                <strong>Astuce professionnelle :</strong> Créez un code couleur personnel. Par exemple : rouge pour l'urgent, bleu pour les projets en cours, vert pour la veille informationnelle, orange pour les achats. Cela vous permet de retrouver vos onglets d'un coup d'œil.
             </div>
         </div>
 
         <div class="section">
-            <h2>3. Gérer les extensions du navigateur</h2>
+            <h2>Gestion des favoris</h2>
             
-            <h3>🧩 Installer une extension</h3>
-            <div class="steps">
+            <h3>⭐ Ajouter un favori</h3>
+            
+            <div class="content-block">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div>
-                        <strong>Accéder au store :</strong>
-                        <br>Chrome : Chrome Web Store
-                        <br>Firefox : Add-ons Firefox
-                        <br>Edge : Microsoft Edge Add-ons
+                    <div class="step-content">
+                        <strong>Méthode rapide</strong>
+                        Sur la page à enregistrer : <span class="shortcut">Ctrl + D</span><br>
+                        Ou cliquez sur l'étoile dans la barre d'adresse
                     </div>
                 </div>
+
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div>
-                        <strong>Rechercher et installer :</strong>
-                        <br>• Chercher l'extension souhaitée
-                        <br>• Vérifier les avis et le nombre d'utilisateurs
-                        <br>• Cliquer sur "Ajouter" puis confirmer
+                    <div class="step-content">
+                        <strong>Nommer le favori</strong>
+                        Donnez un nom clair et descriptif<br>
+                        Exemple : "Portail étudiant UNIFR" plutôt que "Accueil"
                     </div>
                 </div>
+
                 <div class="step">
                     <div class="step-number">3</div>
-                    <div>
-                        <strong>Épingler l'extension :</strong>
-                        <br>Clic sur l'icône puzzle > Épingler pour un accès rapide
+                    <div class="step-content">
+                        <strong>Choisir le dossier de destination</strong>
+                        Sélectionnez "Barre de favoris" pour un accès rapide<br>
+                        Ou créez/choisissez un dossier thématique
                     </div>
                 </div>
             </div>
 
-            <h3>⚙️ Gérer les extensions existantes</h3>
-            <div class="grid">
-                <div class="card">
-                    <h4>Activer/Désactiver</h4>
-                    <p>Menu > Extensions > Basculer l'interrupteur pour activer ou désactiver temporairement</p>
+            <h3>📁 Créer et organiser des dossiers de favoris</h3>
+            
+            <div class="content-block">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Ouvrir le gestionnaire de favoris</strong>
+                        Raccourci : <span class="shortcut">Ctrl + Shift + O</span><br>
+                        Ou Menu (⋮) → Favoris → Gestionnaire de favoris
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Supprimer</h4>
-                    <p>Clic droit sur l'extension > "Supprimer de Chrome/Firefox/Edge"</p>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Créer un nouveau dossier</strong>
+                        Cliquez sur les trois points (⋮) en haut à droite<br>
+                        Sélectionnez "Ajouter un nouveau dossier"<br>
+                        Nommez-le de façon claire (Travail, École, Loisirs, etc.)
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Configurer</h4>
-                    <p>Clic droit > "Options" pour personnaliser les paramètres de l'extension</p>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Organiser les favoris existants</strong>
+                        Glissez-déposez les favoris dans les dossiers appropriés<br>
+                        Créez des sous-dossiers pour une organisation plus fine<br>
+                        Supprimez les favoris obsolètes
+                    </div>
+                </div>
+            </div>
+
+            <h3>🎯 Structure de dossiers recommandée</h3>
+            
+            <div class="visual-example">
+                <h4>Exemple d'organisation efficace :</h4>
+                <ul>
+                    <li><strong>📚 Formation</strong>
+                        <ul>
+                            <li>Cours DCO</li>
+                            <li>Plateformes e-learning</li>
+                            <li>Ressources pédagogiques</li>
+                        </ul>
+                    </li>
+                    <li><strong>💼 Professionnel</strong>
+                        <ul>
+                            <li>Emails et communication</li>
+                            <li>Outils de travail</li>
+                            <li>Veille professionnelle</li>
+                        </ul>
+                    </li>
+                    <li><strong>🔧 Outils quotidiens</strong>
+                        <ul>
+                            <li>Banque</li>
+                            <li>Administration</li>
+                            <li>Transports</li>
+                        </ul>
+                    </li>
+                    <li><strong>🎯 Projets en cours</strong>
+                        <ul>
+                            <li>Projet 1</li>
+                            <li>Projet 2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>📊 Afficher et utiliser la barre de favoris</h3>
+            
+            <div class="content-block">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Activer la barre de favoris</strong>
+                        Raccourci : <span class="shortcut">Ctrl + Shift + B</span><br>
+                        La barre apparaît sous la barre d'adresse
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Ajouter des favoris à la barre</strong>
+                        Lors de l'ajout d'un favori, choisissez "Barre de favoris"<br>
+                        Ou glissez-déposez directement un onglet dans la barre
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Optimiser l'espace</strong>
+                        Renommez les favoris avec des noms courts ou des émojis<br>
+                        Créez des dossiers dans la barre pour regrouper les sites similaires<br>
+                        Ne gardez que vos sites les plus fréquents (5-10 maximum)
+                    </div>
                 </div>
             </div>
 
             <div class="tip">
-                Extensions recommandées : bloqueur de publicités (uBlock Origin), gestionnaire de mots de passe, traducteur automatique.
-            </div>
-
-            <div class="warning">
-                N'installez que des extensions de confiance ! Vérifiez toujours le nombre d'utilisateurs et les avis avant d'installer.
+                <strong>Astuce d'organisation :</strong> Utilisez des émojis au début des noms de vos dossiers et favoris (📧 Email, 📅 Agenda, 🎓 Cours). C'est visuel, rapide à identifier et moderne !
             </div>
         </div>
 
         <div class="section">
-            <h2>4. Utiliser le remplissage automatique en sécurité</h2>
+            <h2>📌 Récapitulatif des raccourcis essentiels</h2>
             
-            <h3>🔐 Configurer le remplissage automatique</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div>
-                        <strong>Accéder aux paramètres :</strong>
-                        <br>Menu > Paramètres > Remplissage automatique
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div>
-                        <strong>Gérer les mots de passe :</strong>
-                        <br>• Activer "Proposer d'enregistrer les mots de passe"
-                        <br>• Consulter la liste des mots de passe enregistrés
-                        <br>• Supprimer les anciens comptes inutilisés
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div>
-                        <strong>Ajouter des informations de paiement :</strong>
-                        <br>• Enregistrer vos cartes bancaires
-                        <br>• Ajouter votre adresse de facturation
-                        <br>• Activer la vérification avant utilisation
-                    </div>
-                </div>
-            </div>
-
-            <h3>🛡️ Bonnes pratiques de sécurité</h3>
-            <div class="grid">
-                <div class="card">
-                    <h4>Mots de passe uniques</h4>
-                    <p>Utilisez un mot de passe différent pour chaque site important</p>
-                </div>
-                <div class="card">
-                    <h4>Vérification en deux étapes</h4>
-                    <p>Activez la double authentification quand c'est possible</p>
-                </div>
-                <div class="card">
-                    <h4>Ordinateur partagé</h4>
-                    <p>Désactivez le remplissage auto sur les PC publics ou partagés</p>
-                </div>
-            </div>
-
-            <div class="warning">
-                Sur un ordinateur public, n'enregistrez JAMAIS vos mots de passe et déconnectez-vous toujours après usage.
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>5. Créer et utiliser des profils de navigateur</h2>
-            
-            <h3>👤 Pourquoi utiliser plusieurs profils ?</h3>
-            <ul>
-                <li><strong>Séparation vie pro/perso :</strong> Gardez vos favoris et historiques distincts</li>
-                <li><strong>Comptes multiples :</strong> Utilisez plusieurs comptes sur un même site</li>
-                <li><strong>Organisation :</strong> Personnalisez chaque profil selon vos besoins</li>
-            </ul>
-
-            <h3>➕ Créer un nouveau profil</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div>
-                        <strong>Ouvrir la gestion des profils :</strong>
-                        <br>Cliquer sur votre icône de profil en haut à droite
-                        <br>Sélectionner "Ajouter un profil"
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div>
-                        <strong>Personnaliser le profil :</strong>
-                        <br>• Choisir un nom (Travail, Personnel, Études, etc.)
-                        <br>• Sélectionner une couleur ou une icône
-                        <br>• Créer un raccourci bureau (optionnel)
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div>
-                        <strong>Se connecter (optionnel) :</strong>
-                        <br>Synchroniser avec votre compte Google/Microsoft
-                        <br>Accéder à vos données sur tous vos appareils
-                    </div>
-                </div>
-            </div>
-
-            <h3>🔄 Changer de profil</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div>Cliquer sur l'icône de profil en haut à droite</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div>Sélectionner le profil souhaité dans la liste</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div>Une nouvelle fenêtre s'ouvre avec le profil choisi</div>
-                </div>
-            </div>
-
-            <div class="tip">
-                Créez un profil "Achats" avec uniquement vos sites de shopping favoris et vos infos de paiement pour plus de rapidité.
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>📋 Récapitulatif des raccourcis essentiels</h2>
-            
-            <div class="grid">
-                <div class="card">
+            <div class="feature-grid">
+                <div class="feature-card">
                     <h4>Onglets</h4>
-                    <ul>
-                        <li><span class="shortcut">Ctrl + T</span> Nouvel onglet</li>
-                        <li><span class="shortcut">Ctrl + W</span> Fermer l'onglet</li>
-                        <li><span class="shortcut">Ctrl + Shift + T</span> Rouvrir</li>
-                        <li><span class="shortcut">Ctrl + Tab</span> Onglet suivant</li>
-                    </ul>
+                    <p><span class="shortcut">Ctrl + T</span> Nouvel onglet</p>
+                    <p><span class="shortcut">Ctrl + W</span> Fermer onglet</p>
+                    <p><span class="shortcut">Ctrl + Shift + T</span> Rouvrir</p>
+                    <p><span class="shortcut">Ctrl + Tab</span> Suivant</p>
                 </div>
-                <div class="card">
+
+                <div class="feature-card">
+                    <h4>Favoris</h4>
+                    <p><span class="shortcut">Ctrl + D</span> Ajouter favori</p>
+                    <p><span class="shortcut">Ctrl + Shift + B</span> Barre favoris</p>
+                    <p><span class="shortcut">Ctrl + Shift + O</span> Gestionnaire</p>
+                </div>
+
+                <div class="feature-card">
                     <h4>Navigation</h4>
-                    <ul>
-                        <li><span class="shortcut">Ctrl + D</span> Ajouter favori</li>
-                        <li><span class="shortcut">Ctrl + H</span> Historique</li>
-                        <li><span class="shortcut">Ctrl + Shift + B</span> Barre favoris</li>
-                        <li><span class="shortcut">Ctrl + L</span> Barre d'adresse</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Navigation privée</h4>
-                    <ul>
-                        <li><span class="shortcut">Ctrl + Shift + N</span> Chrome/Edge</li>
-                        <li><span class="shortcut">Ctrl + Shift + P</span> Firefox</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Utiles</h4>
-                    <ul>
-                        <li><span class="shortcut">Ctrl + +</span> Zoom avant</li>
-                        <li><span class="shortcut">Ctrl + -</span> Zoom arrière</li>
-                        <li><span class="shortcut">Ctrl + 0</span> Zoom 100%</li>
-                        <li><span class="shortcut">F5</span> Actualiser</li>
-                    </ul>
+                    <p><span class="shortcut">Ctrl + 1-8</span> Onglet N</p>
+                    <p><span class="shortcut">Ctrl + 9</span> Dernier onglet</p>
+                    <p><span class="shortcut">Ctrl + L</span> Barre d'adresse</p>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>Guide créé pour le cours DCO E - Chapitre 18</p>
-            <p>Thématique : Navigateur et Web</p>
+            <p>Guide pratique - Chapitre 18 : Élaboration d'un guide de travail</p>
+            <p>Thématique : Navigateur et Web - Gestion des onglets et favoris</p>
         </footer>
     </div>
 </body>
